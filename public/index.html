@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <section id="authSection" class="auth-card">
+        <h1>Library Manager</h1>
+        <p class="subtitle">Simple home book tracking</p>
+
+        <div class="tabs">
+          <button id="loginTab" class="tab active">Login</button>
+          <button id="registerTab" class="tab">Register</button>
+        </div>
+
+        <form id="authForm" class="form">
+          <div id="nameField" class="form-group hidden">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Password" required />
+          </div>
+          <button id="authSubmitBtn" class="primary-btn" type="submit">Login</button>
+        </form>
+      </section>
+
+      <section id="appSection" class="hidden">
+        <header class="top-bar">
+          <div class="left-group">
+            <h2>Your Library</h2>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Search by title or author..."
+            />
+          </div>
+          <div class="right-group">
+            <button id="addBookBtn" class="primary-btn">Add Book</button>
+            <button id="logoutBtn" class="ghost-btn">Logout</button>
+          </div>
+        </header>
+
+        <section class="recent-box">
+          <h3>Recently Added Books</h3>
+          <div id="recentBooks" class="recent-list"></div>
+        </section>
+
+        <section>
+          <div id="booksGrid" class="books-grid"></div>
+        </section>
+      </section>
+    </main>
+
+    <div id="bookModal" class="modal hidden">
+      <div class="modal-content">
+        <h3 id="modalTitle">Add Book</h3>
+        <form id="bookForm" class="form">
+          <div class="form-group">
+            <label for="bookTitle">Title</label>
+            <input id="bookTitle" type="text" required />
+          </div>
+          <div class="form-group">
+            <label for="bookAuthor">Author</label>
+            <input id="bookAuthor" type="text" required />
+          </div>
+          <div class="form-group">
+            <label for="bookDescription">Description</label>
+            <textarea id="bookDescription" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="bookImage">Image (optional)</label>
+            <input id="bookImage" type="file" accept="image/*" />
+          </div>
+          <img id="imagePreview" class="image-preview hidden" alt="Book preview" />
+          <div class="modal-actions">
+            <button type="submit" class="primary-btn">Save</button>
+            <button id="deleteBookBtn" type="button" class="danger-btn hidden">Delete</button>
+            <button id="cancelModalBtn" type="button" class="ghost-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
