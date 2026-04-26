@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library Manager</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="container">
@@ -34,15 +34,20 @@
         </form>
       </section>
 
-      <section id="appSection" class="hidden">
+      <section id="appSection" class="app-shell hidden">
         <header class="top-bar">
           <div class="left-group">
-            <h2>Your Library</h2>
-            <input
-              id="searchInput"
-              type="text"
-              placeholder="Search by title or author..."
-            />
+            <div>
+              <h2>Your Library</h2>
+              <p class="subtitle">Manage your home collection quickly</p>
+            </div>
+            <div class="search-wrap">
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search by title or author..."
+              />
+            </div>
           </div>
           <div class="right-group">
             <button id="addBookBtn" class="primary-btn">Add Book</button>
@@ -61,9 +66,12 @@
       </section>
     </main>
 
-    <div id="bookModal" class="modal hidden">
+    <div id="bookModal" class="modal hidden" aria-hidden="true">
       <div class="modal-content">
-        <h3 id="modalTitle">Add Book</h3>
+        <div class="modal-header">
+          <h3 id="modalTitle">Add Book</h3>
+          <button id="closeModalBtn" type="button" class="icon-btn" aria-label="Close modal">×</button>
+        </div>
         <form id="bookForm" class="form">
           <div class="form-group">
             <label for="bookTitle">Title</label>
@@ -93,6 +101,6 @@
 
     <div id="toast" class="toast hidden"></div>
 
-    <script src="app.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
